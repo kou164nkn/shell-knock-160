@@ -1,0 +1,13 @@
+$ mkdir 1 3
+$ ls -d ?
+1 3
+
+$ seq 4 | xargs -n2 mv $1
+$ ls -d ?
+2 4
+
+-----
+
+$ seq 4 | xargs -I@ mkdir dir_@
+$ ls -d  dir_*
+dir_1 dir_2 dir_3 dir_4

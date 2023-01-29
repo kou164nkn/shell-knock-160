@@ -1,0 +1,34 @@
+$ seq 5 | awk '{print $1%2 ? "奇数":"偶数"}' | sort | uniq -c | awk '{print $2,$1}'
+偶数 2
+奇数 3
+
+
+----
+①
+$ seq 5 | awk '{print $1%2 ? "奇数":"偶数"}'
+奇数
+偶数
+奇数
+偶数
+奇数
+
+
+②
+$ seq 5 | awk '{print $1%2 ? "奇数":"偶数"}' | sort
+偶数
+偶数
+奇数
+奇数
+奇数
+
+
+③
+$ seq 5 | awk '{print $1%2 ? "奇数":"偶数"}' | sort | uniq
+偶数
+奇数
+
+
+④
+$ seq 5 | awk '{print $1%2 ? "奇数":"偶数"}' | sort | uniq -c
+   2 偶数
+   3 奇数
