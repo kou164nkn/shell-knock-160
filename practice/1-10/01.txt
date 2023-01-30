@@ -1,0 +1,15 @@
+$ cat ../shellgei160/qdata/1/files.txt | grep '\.exe$'
+test.exe
+画面仕様書.xls.exe
+
+
+# grep を使用しないパターン
+# 1. nオプションを指定して、pフラグをつけることでマッチした行だけ出力する
+$ cat ../shellgei160/qdata/1/files.txt | sed -n '/\.exe$/p'
+test.exe
+画面仕様書.xls.exe
+
+# 2. awk を使用する
+$ cat ../shellgei160/qdata/1/files.txt | awk '/\.exe$/'
+test.exe
+画面仕様書.xls.exe
