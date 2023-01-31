@@ -1,0 +1,18 @@
+$ ls ../shellgei160/qdata/2/img/ | awk '{ if(gsub(/\.png/, "", $1)) print $1 }' | xargs -I@ -P 10 convert ../shellgei160/qdata/2/img/@.png ./test/@.jpg
+$
+
+
+# 時間計測 ( time を使う )
+# 1 並列
+$ time ls ../shellgei160/qdata/2/img/ | awk '{ if(gsub(/\.png/, "", $1)) print $1 }' | xargs -I@  convert ../shellgei160/qdata/2/img/@.png ./test/@.jpg
+
+real    0m3.386s
+user    0m3.203s
+sys     0m0.961s
+
+# 10 並列
+$ time ls ../shellgei160/qdata/2/img/ | awk '{ if(gsub(/\.png/, "", $1)) print $1 }' | xargs -I@ -P 10 convert ../shellgei160/qdata/2/img/@.png ./test/@.jpg
+
+real    0m1.694s
+user    0m3.435s
+sys     0m1.274s
