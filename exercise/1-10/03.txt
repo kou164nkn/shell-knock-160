@@ -1,0 +1,7 @@
+# 1~100 のファイル作成
+$ seq 100 | xargs -P2 touch
+
+# 0パディングを行う
+# seq -w でゼロパディングした数字を表示し、次の awk で繰り返し表示を行う
+# その後、sed で mv コマンドを作成し、最後に xargs で実行
+$ seq -w 100 | awk '{print $1,$1}' | sed 's/^0*/mv /' | xargs -P2 -I@ sh -c @
