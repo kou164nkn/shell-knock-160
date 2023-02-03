@@ -1,0 +1,6 @@
+$ less ../shellgei160/qdata/5/ntp.conf | awk '$1=="pool"' | awk -F ' ' '{ print $2 }'
+0.ubuntu.pool.ntp.org
+1.ubuntu.pool.ntp.org
+2.ubuntu.pool.ntp.org
+3.ubuntu.pool.ntp.org
+ntp.ubuntu.com
