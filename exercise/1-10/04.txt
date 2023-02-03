@@ -1,0 +1,5 @@
+# ファイルの作成
+$ seq 10000 | sed 's/^/echo $RANDOM > /' | bash
+
+# 10 が入ったファイルを削除
+$ ls | awk '/.*10.*/' | xargs -P2 rm
