@@ -1,0 +1,18 @@
+$ set aa bb cc
+$ echo $2
+bb
+
+$ for x in "$1" "$2" "$3"; do echo $x; done
+aa
+bb
+cc
+
+$ for x in "$@"; do echo $x; done
+aa
+bb
+cc
+
+# 改行せずに連続して出力
+# while は read の成功結果を見て、成功し続ける限り処理を繰り返す
+$ seq 3 | while read x; do printf "%s " $x; done
+1 2 3 $

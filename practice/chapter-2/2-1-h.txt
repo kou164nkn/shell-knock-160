@@ -1,0 +1,19 @@
+$ a=0
+$ $ if echo $a | grep '^[02468]$' ; then echo 偶数; elif echo $a | grep '^[13579]$' ; then echo 奇数; else echo その他 ; fi
+0
+偶数
+
+# 11 を入れた場合
+$ a=11
+$ if echo $a | grep '^[02468]$' ; then echo 偶数; elif echo $a | grep '^[13579]$' ; then echo 奇数; else echo その他 ; fi
+その他
+
+# if を使わず awk を使った方法①
+$ a=1
+$ echo $a | awk '{ print /^[0-9]$/ ? ( $1%2==0 ? "even" : "odd" ) : "other" }'
+odd
+
+# awk を使った方法②
+$ a=2
+$ echo $a | awk '{ print /^[0-9]$/ ? ( $1%2 ? "odd" : "even" ) : "other" }'
+even
