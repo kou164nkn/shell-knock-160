@@ -15,5 +15,5 @@ odd
 
 # awk を使った方法②
 $ a=2
-$ echo $a | awk '{ print /^[0-9]$/ ? ( $1%2 ? "odd" : "even" ) : "other" }'
+$ echo $a | awk '/^[0-9]$/{ print $1%2 ? "odd" : "even" ; exit}{ print "other" }'
 even
