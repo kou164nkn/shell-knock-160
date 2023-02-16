@@ -1,0 +1,8 @@
+# テストコマンドを利用した方法
+$ [ -e unfile ] || touch unfile
+
+
+# <>(読み書きモード)を利用した方法
+# < は標準入力の意。 unfile が存在すれば cat < unfile と同じ挙動なる
+# unfile が存在しない場合、cat > unfile と同じ挙動になる
+cat <> unfile
