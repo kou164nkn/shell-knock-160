@@ -1,0 +1,16 @@
+$ foo=1; while [ $foo -le 5 ]; do echo "羊が${foo}匹"; foo=$((foo+1)); sleep 1; done
+羊が1匹
+羊が2匹
+羊が3匹
+羊が4匹
+羊が5匹
+$
+
+
+# 別解
+$ seq 1 5 | xargs -I@ bash -c 'echo 羊が@匹; sleep 1'
+羊が1匹
+羊が2匹
+羊が3匹
+羊が4匹
+羊が5匹
