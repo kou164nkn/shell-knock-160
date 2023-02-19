@@ -1,0 +1,11 @@
+# 小問1
+# ${var^} で先頭の文字だけ大文字, ${var^^} で全て大文字
+$ echo I am a perfect human | (read foo; echo ${foo^^})
+I AM A PERFECT HUMAN
+
+# 小問2
+# IFS で区切り文字列を "-" に変更
+# read -a で配列 foo に文字列を格納
+# "${var[*]^}" で各要素の先頭の文字だけ大文字に変換
+$ echo pen-pinapple-apple-pen | (IFS=-;read -a foo; echo "${foo[*]^}")
+Pen-Pinapple-Apple-Pen
