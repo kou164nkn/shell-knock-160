@@ -1,0 +1,22 @@
+$ n="XYZ";for i in {A..C}; do n+=$i; echo $n; done;echo $n
+XYZA
+XYZAB
+XYZABC
+XYZABC
+
+# 最後の echo $n に for 文内での処理の影響を与えないために、サブシェルで実行
+$ n="XYZ";(for i in {A..C}; do n+=$i; echo $n; done);echo $n
+XYZA
+XYZAB
+XYZABC
+XYZ
+
+
+# for~done と cat をパイプで繋げることによって、暗黙的にサブシェルを生成
+# パイプはプロセス間通信となるため、パイプの前後で別のプロセスが動いている必要がある
+# そのため、 Bash は for 文を別のプロセスで実行する
+$ n="XYZ";for i in {A..C}; do n+=$i; echo $n; done|cat;echo $n
+XYZA
+XYZAB
+XYZABC
+XYZ

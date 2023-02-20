@@ -1,0 +1,18 @@
+$ pwd
+/Users/foo
+$ cd /etc/
+$ ls *.conf
+asl.conf               kern_loader.conf       newsyslog.conf         notify.conf            ntp_opendirectory.conf resolv.conf            syslog.conf
+autofs.conf            man.conf               nfs.conf               ntp.conf               pf.conf                rtadvd.conf
+$ cd -
+/Users/foo
+
+
+# サブシェルを使うと別プロセスで実行されるため、 cd - が不要になる
+$ pwd
+/Users/foo
+$ (cd /etc/; ls *.conf)
+asl.conf               kern_loader.conf       newsyslog.conf         notify.conf            ntp_opendirectory.conf resolv.conf            syslog.conf
+autofs.conf            man.conf               nfs.conf               ntp.conf               pf.conf                rtadvd.conf
+$ pwd
+/Users/foo
