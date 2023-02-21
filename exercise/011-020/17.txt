@@ -1,0 +1,1 @@
+$ while read foo; do echo $foo; done < /etc/passwd > ~/a
