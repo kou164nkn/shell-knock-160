@@ -1,0 +1,14 @@
+# echo * でカレントディレクトリのディレクトリ(とファイル)を表示できる
+$ for dir in $(cd /usr; echo *); do echo $dir; done
+bin
+games
+include
+lib
+lib32
+lib64
+libexec
+libx32
+local
+sbin
+share
+src
