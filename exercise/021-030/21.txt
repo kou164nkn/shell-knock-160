@@ -1,0 +1,8 @@
+$ find -type f | grep -v "\./dir_b/dir" | sort
+./dir_a/file_1
+./dir_a/file_2
+./dir_b/file_1
+./dir_b/file_2
+./dir_c/dir_b/dir_a/file_1
+./dir_c/dir_b/file_1
+./dir_c/dir_b/file_2
