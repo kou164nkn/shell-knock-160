@@ -1,0 +1,7 @@
+$ echo {foo,bar,baz,qux}.{hoge,fuga,piyo}.{com,org,gov,jp,co.jp,ed.jp,dev} | tr ' ' '\n' | sed 's/^\.//' | sort -R
+bar.hoge.jp
+bar.piyo.com
+~~~ 省略 ~~~
+bar.piyo.jp
+qux.hoge.ed.jp
+baz.fuga.dev
