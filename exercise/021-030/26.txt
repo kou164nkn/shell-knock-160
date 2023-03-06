@@ -1,0 +1,6 @@
+$ echo 'trap '\''h=$(date +%-H);[ "$h" -ge 13 -o "$h" -lt 22 ] && echo go back home'\'' SIGCHLD' >> ~/.bashrc
+
+# エスケープでわかりづらいがフックさせるための記述は以下の通り(trap 内の処理)
+# $(date +%-H) で現在時刻の時間だけ取得した上で、テストコマンド( 22:00~7:00 JST 内か否か ) を実行
+# 22:00~7:00 JST 内であればステータス 0 が返るため、制御演算子を通して echo の処理も実行される
+# trap 'h=$(date +%-H);[ "$h" -ge 13 -o "$h" -lt 22 ] && echo go back home' SIGCHLD
