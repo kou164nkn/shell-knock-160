@@ -1,0 +1,19 @@
+# bash -n で構文チェックが可能
+$ bash -n ./exercise/021-030/29_fd.bash
+./exercise/021-030/29_fd.bash: line 6: syntax error in conditional expression
+./exercise/021-030/29_fd.bash: line 6: syntax error near `;'
+./exercise/021-030/29_fd.bash: line 6: `  if [[ $(( i % 3 )) == 0 ]; then'
+
+# |& で標準エラー出力を awk に渡す
+# コロン or 空白区切りにすると、4列目が行番号になる
+$ bash -n ./exercise/021-030/29_fd.bash |& awk -F '[: ]' '{ print $4 }'
+6
+6
+6
+
+# '!a[$4]++{ print $4 }' で一度だけ行番号が出力されるよう制御する
+# awk の条件分岐は 1 以上が true で 0 が false
+# a[$4]は最初は 0 が入っているため、 !a[$4]++ は true となり行番号が出力される
+# 2回目以降は !a[$4]++ が false となるため行番号は出力されない
+$ bash -n ./exercise/021-030/29_fd.bash |& awk -F '[: ]' '!a[$4]++{ print $4 }'
+6
