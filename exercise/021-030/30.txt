@@ -1,0 +1,14 @@
+# ${!FOO*} で FOO から始まる変数一覧に置き換わる
+$ echo ${!BASH*}
+BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_LINENO BASH_SOURCE BASH_SUBSHELL BASH_VERSINFO BASH_VERSION
+
+# set でシェルの設定を出力
+# read で各行を読み込み、先頭4文字が BASH であれ
+$ set | while read s; do [[ "${s:0:4}" == 'BASH' ]] && echo ${s%%=*}; done
+BASH
+BASH_ARGC
+BASH_ARGV
+BASH_LINENO
+BASH_SOURCE
+BASH_VERSINFO
+BASH_VERSION
