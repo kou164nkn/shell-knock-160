@@ -1,0 +1,14 @@
+$ seq 3 | python3 -c 'import sys;[print(int(a)*2) for a in sys.stdin]'
+2
+4
+6
+
+$ seq 3 | python3 -c 'import sys,math;[print(math.sqrt(int(a))) for a in sys.stdin]'
+1.0
+1.4142135623730951
+1.7320508075688772
+
+$ seq 3 | python3 -c 'import sys;[ print("番号:" + a.strip()) for a in sys.stdin ]'
+番号:1
+番号:2
+番号:3
